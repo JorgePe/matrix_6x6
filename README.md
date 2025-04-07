@@ -1,5 +1,5 @@
 # matrix_6x6
-A module to display text in a 6x6 LED matrix with Pybricks
+A Pybricks (micropython) module to display text in a 6x6 LED matrix with Pybricks
 
 Using 4 Color LightMatrix devices in a 2x2 array to display 6x6 text
 - single chars
