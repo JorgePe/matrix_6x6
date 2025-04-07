@@ -22,7 +22,7 @@ To display a single character:
 ```
 showchar(matrix, 'A', (Color.WHITE, Color.BLACK) )
 ```
-this will show 'A' with white ink (ON) pixels over black paper (OFF)
+this will show an 'A' with white ink (ON) pixels over black paper (OFF)
 
 To display a string:
 ```
@@ -39,3 +39,16 @@ Any tuple with two [Pybricks colors](https://docs.pybricks.com/en/latest/paramet
 ```
 (Color.WHITE, Color.BLACK)
 ```
+
+## Font
+Currently only a basic "font" is available:
+- digits 0..9
+- uppercase letters A..Z
+- 3 symbols: !, ? and a smile
+
+Lowercase letters are replaced by their uppercase version and all other symbols are replaced by a space (an empty 6x6 sprite).
+
+## TODO:
+- consolidate showchar and slideshow in a single function
+- move more functions to library
+- add more representations to the "font"
