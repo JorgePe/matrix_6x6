@@ -35,7 +35,7 @@ character, using yellow pixels over black (OFF)
 
 It should work with any Pybricks supported LEGO hub with at least 4 ports (Technic Hub, Robot Inventor or SPIKE and maybe EV3 one day).
 
-Any tupple with two [Pybricks colors](https://docs.pybricks.com/en/latest/parameters/color.html) is supported for ink and paper:
+Any tuple with two [Pybricks colors](https://docs.pybricks.com/en/latest/parameters/color.html) is supported for ink and paper:
 ```
 (Color.WHITE, Color.BLACK)
 ```
