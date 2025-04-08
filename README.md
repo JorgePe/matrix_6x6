@@ -51,3 +51,4 @@ Lowercase letters are replaced by their uppercase version and all other symbols 
 ## TODO:
 - move more functions to library
 - add more representations to the "font"
+- add some sort of "clustering" feature that extends the 6x6 matrix using several hubs and broadcast/observe methods
