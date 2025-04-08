@@ -20,16 +20,16 @@ matrix = (matrixA, matrixB, matrixC, matrixD)
 
 To display a single character:
 ```
-showchar(matrix, 'A', (Color.WHITE, Color.BLACK) )
+show(matrix, 'A', 'N', 100, (Color.WHITE, Color.BLACK) )
 ```
-this will show an 'A' with white ink (ON) pixels over black paper (OFF)
+this will show a static 'A' for 100 ms with white ink (ON) pixels over black paper (OFF)
 
 To display a string:
 ```
-slideshow(matrix, 'Hello', 'L', 100, (Color.YELLOW, Color.BLACK) )
+show(matrix, 'Hello', 'L', 100, (Color.YELLOW, Color.BLACK) )
 ```
 this will show 'Hello', scrolling each character to left with a pause of 100 ms between each
-character, using yellow pixels over black (OFF)
+pixel rotation, using yellow pixels over black (OFF)
 
 [![Displaying text with Technic Hub](http://img.youtube.com/vi/mf9VUIu9txE/0.jpg)](https://youtu.be/mf9VUIu9txE "Displaying text with Technic Hub")
 
@@ -49,6 +49,5 @@ Currently only a basic "font" is available:
 Lowercase letters are replaced by their uppercase version and all other symbols are replaced by a space (an empty 6x6 sprite).
 
 ## TODO:
-- consolidate showchar and slideshow in a single function
 - move more functions to library
 - add more representations to the "font"
