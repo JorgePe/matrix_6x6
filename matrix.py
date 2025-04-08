@@ -23,9 +23,6 @@ matrix = (matrixA, matrixB, matrixC, matrixD)
 
 pixels_off=[Color.BLACK]*9
 
-# each char is represented by a 6x6 array
-
-
 
 def clear(mtx):
     for m in mtx:
@@ -48,7 +45,6 @@ def get_colored_pixels(l, colors):
     return colored_pixels
 
 
-
 def split(sprite):
     """
     splits a 6x6 sprite in 4 patterns of 3x3 pixels
@@ -66,7 +62,7 @@ def split(sprite):
     return( (patternA, patternB, patternC, patternD) )
 
 
-def show(mtx, sprite, colors):
+def display(mtx, sprite, colors):
     """
     mtx is a tupple with 4 ColorLightMatrix
     sprite is a 6x6 array (a list of 6 lists of 6 values)
@@ -81,23 +77,14 @@ def show(mtx, sprite, colors):
         m.on(get_colored_pixels(p, colors) )
 
 
-def showchar(mtx, c, colors):
+def show(mtx, s, direction, pause, colors ):
     """
-    displays a char c in a mtx
-    mtx is a tupple with 4 ColorLightMatrix
-    colors is a tupple with (ink, paper) color values
-    """
-
-    sprite = get_representation(c)
-    show(mtx, sprite, colors)
-
-
-def slideshow(mtx, s, direction, pause, colors ):
-    """
-    display a string s scrolling it to Left/Right
+    display a string s scrolling it to Left/Right/None
     with a pause between each char in the string
     mtx is a tupple with 4 ColorLightMatrix
-    direction = 'L' or 'R'
+    s can also be a single char
+
+    direction = 'L' or 'R' or 'N'
     pause in ms
     colors is a tupple with (ink, paper) color values
     """
@@ -114,12 +101,17 @@ def slideshow(mtx, s, direction, pause, colors ):
     grid = [[0 for x in range(width)] for y in range(heigth)] 
 
     if direction == 'L':
-        # for direction 'Left' the empty char is at the end
+        # to scroll 'Left' add empty char at the end
         index = 0
-    else:
-        # for direction 'Right' the empty char is at the beginning
+    elif direction == 'R':
+        # to scroll 'Right' add empty char at the beginning
         # so will start filling the grid at column 6
         index = 6
+    elif direction == 'N':
+        # do not scroll
+        index = 0
+    else:
+        return
 
     for i in range(0,size):
         # gets each char 6x6 representation
@@ -138,12 +130,17 @@ def slideshow(mtx, s, direction, pause, colors ):
         start = 0
         end = size*6+1
         incr = 1
-    else:
+    elif direction == 'R':
         # start the sliding window from right
         # and decrease position
         start = size*6
         end = -1
         incr = -1
+    else:
+        # no sliding window
+        start = 0
+        end = 1
+        incr = 1
 
     for i in range(start, end, incr):
         for line in range(0,6):
@@ -160,17 +157,24 @@ def slideshow(mtx, s, direction, pause, colors ):
         wait(pause)
 
 
-
 clear(matrix)
 wait(1000)
 
+
+show(matrix, '1', 'N', 0, (Color.WHITE, Color.BLACK) )
+wait(1000)
+show(matrix, '1', 'L', 250, (Color.YELLOW, Color.BLACK) )
+wait(1000)
+show(matrix, '1', 'R', 250, (Color.RED, Color.BLACK) )
+wait(1000)
+
 for c in '0123456789':
-    showchar(matrix, c, (Color.WHITE, Color.BLACK))
+    #showchar(matrix, c, (Color.WHITE, Color.BLACK) )
+    show(matrix, c, 'N', 0, (Color.WHITE, Color.BLACK) )
     wait(200)
 
 clear(matrix)    
 wait(1000)
-
 colors = (
     (Color.WHITE, Color.BLACK),
     (Color.YELLOW, Color.BLACK),
@@ -179,11 +183,12 @@ colors = (
     (Color.WHITE, Color.BLUE)
 )
 for c in colors:
-    slideshow(matrix, 'Python is awesome!', 'L', 50, c)
+    #slideshow(matrix, 'Python is awesome!', 'L', 50, c)
+    show(matrix, 'Python is awesome!', 'L', 50, c)
     wait(1000)
 
 clear(matrix)
-
+wait(1000)
 for i in range(0,10):
     for c in (Color.WHITE, Color.RED, Color.GREEN, Color.ORANGE, Color.YELLOW):
         showchar(matrix, '@', (c, Color.BLACK))

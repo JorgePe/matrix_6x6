@@ -1,3 +1,6 @@
+# each char is represented by a 6x6 sprite
+# a list of lists
+
 chr_null = [
     [0,0,0,0,0,0],
     [0,0,0,0,0,0],
