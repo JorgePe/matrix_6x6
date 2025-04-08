@@ -5,31 +5,35 @@ A Pybricks (micropython) module to display text in a 6x6 LED matrix with Pybrick
 This is a very early development and will probably keep changing it
 
 ## Usage
-Using 4 Color LightMatrix devices in a 2x2 array to display 6x6 text
+Using 4 Color LightMatrix devices in 4 ColorLightMatrix devices connected to
+Ports A, B, C and D like this:
+
+        D | C
+        - - -
+        B | A
+
+Import everything from 'matrix_6x6' and initialize an object of class Matrix:
 
 ```
-from pybricks.pupdevices ColorLightMatrix
+from matrix_6x6 import *
 
-matrixA = ColorLightMatrix(Port.A)
-matrixB = ColorLightMatrix(Port.B)
-matrixC = ColorLightMatrix(Port.C)
-matrixD = ColorLightMatrix(Port.D)
-
-matrix = (matrixA, matrixB, matrixC, matrixD)
+matrix = Matrix(Port.A, Port.B, Port.C, Port.D)
 ```
 
-To display a single character:
+then to display a single character:
 ```
-show(matrix, 'A', 'N', 100, (Color.WHITE, Color.BLACK) )
+matrix.show('A', 'N', 100, (Color.WHITE, Color.BLACK) )
 ```
 this will show a static 'A' for 100 ms with white ink (ON) pixels over black paper (OFF)
 
-To display a string:
+and to display a string:
 ```
-show(matrix, 'Hello', 'L', 100, (Color.YELLOW, Color.BLACK) )
+matrix.show('Hello', 'L', 100, (Color.YELLOW, Color.BLACK) )
 ```
 this will show 'Hello', scrolling each character to left with a pause of 100 ms between each
 pixel rotation, using yellow pixels over black (OFF)
+
+See 'matrix.py' for a few more examples
 
 [![Displaying text with Technic Hub](http://img.youtube.com/vi/mf9VUIu9txE/0.jpg)](https://youtu.be/mf9VUIu9txE "Displaying text with Technic Hub")
 
@@ -49,6 +53,5 @@ Currently only a basic "font" is available:
 Lowercase letters are replaced by their uppercase version and all other symbols are replaced by a space (an empty 6x6 sprite).
 
 ## TODO:
-- move more functions to library
 - add more representations to the "font"
 - add some sort of "clustering" feature that extends the 6x6 matrix using several hubs and broadcast/observe methods
