@@ -53,5 +53,23 @@ Currently only a basic "font" is available:
 Lowercase letters are replaced by their uppercase version and all other symbols are replaced by a space (an empty 6x6 sprite).
 
 ## TODO:
-- add more representations to the "font"
+- add more representations to the "font" - but do not expect much more, according to my tests the Technic Hub have only
+  enough memory for ~64 sprites and only if using short strings, so maybe a total of 48 sprites
+- perhaps an option for 1 or 2 user-defined sprites
 - add some sort of "clustering" feature that extends the 6x6 matrix using several hubs and broadcast/observe methods
+
+## FAQ:
+
+Q: Is it possible to use a City Hub or even a BOOST Move Hub?
+
+A: Not really. Both hubs have only 2 free ports (A and B on City Hub, C and D on Move Hub) and I tried a version of my module
+with just two ColorLightMatrix in a 6x3 arrangement:
+- the Move Hub has not enough memory, had to reduce variable and function
+names and use a font with just 10 sprites (digits) to achieve installation... and when the code runs it fails with a memory
+error
+- the City Hub worked with the above cripled version so I tried the whole font... not enough memoroy; the best I could use was
+  a 10 digit + 22 letters font
+Please see [Pybricks details on hubs](https://pybricks.com/learn/getting-started/what-do-you-need/) to better understand the
+memory differences between the hubs
+
+
