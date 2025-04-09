@@ -67,8 +67,14 @@ with just two ColorLightMatrix in a 6x3 arrangement:
 - the Move Hub has not enough memory, had to reduce variable and function
 names and use a font with just 10 sprites (digits) to achieve installation... and when the code runs it fails with a memory
 error
-- the City Hub worked with the above cripled version so I tried the whole font... not enough memoroy; the best I could use was
+- the City Hub did worked with the above cripled version so I tried the whole font... not enough memory; the best I could use was
   a 10 digit + 22 letters font
+  
+Although I do like to use the Move Hub because it is unexpensive to find and already has 2 motors inside, I don't expect to use
+it with memory-intensive and/or math functions. I also don't like use the City Hub - it's expensive and has not enough performance
+to justify it in my projects, except for it's small size. I prefer to use the Technic Hub: is much more powerfull and I can still
+can buy it for a small cost.
+
 Please see [Pybricks details on hubs](https://pybricks.com/learn/getting-started/what-do-you-need/) to better understand the
 memory differences between the hubs
 
