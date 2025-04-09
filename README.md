@@ -54,7 +54,9 @@ Lowercase letters are replaced by their uppercase version and all other symbols 
 
 ## TODO:
 - add more representations to the "font" - but do not expect much more, according to my tests the Technic Hub have only
-  enough memory for ~64 sprites and only if using short strings, so maybe a total of 48 sprites
+  enough memory for ~64 sprites and only if using short strings, so maybe a total of 48 sprites...
+- reduce memory usage of the font representation (considering a list of 6 bytes instead of a list of 6 lists of 6 chars
+  but will require some intermediate functions)
 - perhaps an option for 1 or 2 user-defined sprites
 - add some sort of "clustering" feature that extends the 6x6 matrix using several hubs and broadcast/observe methods
 
