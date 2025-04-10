@@ -69,9 +69,8 @@ But don't expect much for static sprites, 6x3 isn't enough for letters.
 Q: Is it possible to use a Move Hub?
 
 A: Yes but with several limitations. I am just finishing a new class with just 2 ColorLightMatrix and a more compact font
-representation and also just a subset of the font with 10 digits.
-
-The Move Hub has not enough memory for more and even with just 10 digits you will have to be careful with the size of your variables.
+representation and it barely supports 10 digits and 26 letters, leaving no memory for anything else,
+you will have to be VERY careful even with the size of your variables.
   
 Although I do like to use the Move Hub because it is unexpensive to find and already has 2 motors inside, I don't expect to use
 it with memory-intensive and/or math functions.
