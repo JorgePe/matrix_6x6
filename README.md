@@ -54,25 +54,27 @@ Lowercase letters are replaced by their uppercase version and all other symbols 
 
 ## TODO:
 - reduce memory usage of the font representation [ALMOST DONE - using a list of 6 bytes instead of a list of 6 lists of 6 chars)
-- implement a 6x3 mode with just 2 ColorLightMatrix devices
+- implement a 6x3 class with just 2 ColorLightMatrix devices [ALMOST DONE]
 - add more representations to the "font" - but do not expect much more to preserve memory... maybe a total of 48 sprites
 - perhaps an option for user-defined sprites
 - add some sort of "clustering" feature that extends the 6x6 matrix using several hubs and broadcast/observe methods
 
 ## FAQ:
 
-Q: Is it possible to use a City Hub or even a BOOST Move Hub?
+Q: Is it possible to use a City Hub?
 
-A: Not really. Both hubs have only 2 free ports (A and B on City Hub, C and D on Move Hub) and I am trying a version of my module
-with just two ColorLightMatrix in a 6x3 arrangement, with a more compact font representation:
-- the Move Hub has not enough memory, had to reduce font to just 10 digits... and when the code runs it fails with a TypeError
-- the City Hub does works with the above cripled version but I suspect I'm using almost all of the memory available so using this
- module in a large program would be difficult
+A: Yes. I am just finishing a new class with just 2 ColorLightMatrix in a 6x3 arrangement and a more compact font representation.
+But don't expect much for static sprites, 6x3 isn't enough for letters.
+
+Q: Is it possible to use a Move Hub?
+
+A: Yes but with several limitations. I am just finishing a new class with just 2 ColorLightMatrix and a more compact font
+representation and also just a subset of the font with 10 digits.
+
+The Move Hub has not enough memory for more and even with just 10 digits you will have to be careful with the size of your variables.
   
 Although I do like to use the Move Hub because it is unexpensive to find and already has 2 motors inside, I don't expect to use
-it with memory-intensive and/or math functions. I also don't like use the City Hub - it's expensive and has not enough performance
-to justify it in my projects, except for it's small size. I prefer to use the Technic Hub: is much more powerfull and I can still
-can buy it for a small cost.
+it with memory-intensive and/or math functions.
 
 Please see [Pybricks details on hubs](https://pybricks.com/learn/getting-started/what-do-you-need/) to better understand the
 memory differences between the hubs
@@ -80,5 +82,4 @@ memory differences between the hubs
 Q: Is it possible to use just 2 ColorLightMatrix devices?
 
 A: It will be possible very soon, in a 6x3 arrangement; not much usefull for displaying static text but scrolling text works
-almost decently, our brain can compensate the lack of resolution.
-
+almost decently, our brain can compensate quite well the lack of resolution.
