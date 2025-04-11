@@ -1,6 +1,6 @@
 """
-'matrix_6x6.py' is a Pybricks module for displaying
-text in a 2x3 arrangement of ColorLightMatrix devices
+'matrix_6x3.py' is a Pybricks module for displaying
+text in a 2x1 arrangement of ColorLightMatrix devices
 by JorgePe - https://github.com/JorgePe/matrix_6x6
 
 most variable names are short to reduce memory usage
@@ -15,32 +15,27 @@ from matrix_font import *
 
 """
     using this arrangement:
-    4 | 3
-    - - -
-    2 | 1
+     2
+     -
+     1
     (each number denotes a ColorLightMatrix device)
 """
-class Matrix2x2:
-    def __init__(self, port0, port1, port2, port3):
+
+class Matrix2x1:
+
+    def __init__(self, port0, port1):
 #        self.clmatrix1 = ColorLightMatrix(port0)
 #        self.clmatrix2 = ColorLightMatrix(port1)
-#        self.clmatrix3 = ColorLightMatrix(port2)
-#        self.clmatrix4 = ColorLightMatrix(port3)
-#        self.clm_array = (self.clmatrix1, self.clmatrix2, self.clmatrix3, self.clmatrix4)
-
+#        self.clm_array = (self.clmatrix1, self.clmatrix2)
         self.clm0 = ColorLightMatrix(port0)
-        self.clm1 = ColorLightMatrix(port1)   
-        self.clm2 = ColorLightMatrix(port2)
-        self.clm3 = ColorLightMatrix(port3)   
+        self.clm1 = ColorLightMatrix(port1)    
 
     def clear(self):
         """
-        turns off all LEDs in the 2x2 arrangement
+        turns off all LEDs in the 2x1 arrangement
         """
         self.clm0.off()
-        self.clm1.off()
-        self.clm2.off()
-        self.clm3.off()  
+        self.clm1.off()            
 
     def gLeds(self, l, c):
         """
@@ -70,42 +65,29 @@ class Matrix2x2:
             UL | UR
             -------
             BL | BR        
-        we need to:
-         - extract UL, UR, BL and BR parts
+        since we only have a 2x1 arrangement:
+         - extract UR and BR parts
          - convert each to a list of 9 values (1/0)
          - replace 1/0 by ink/paper colors
          - display each part on each ColorLightMatrix
         """
 
-        ul = [ ( s[0] & 0xF8 ) >> 3, ( s[1] & 0xF8 ) >> 3, ( s[2] & 0xF8 ) >> 3 ]
-        bl = [ ( s[3] & 0xF8 ) >> 3, ( s[4] & 0xF8 ) >> 3, ( s[5] & 0xF8 ) >> 3 ]
         ur = [ s[0] & 0x07 , s[1] & 0x07 , s[2] & 0x07 ]
         br = [ s[3] & 0x07 , s[4] & 0x07 , s[5] & 0x07 ]
 
         # converts each value to its 3-bit binary representation
         # split in a list of 3
         # then combines the 3 lists in one list of 9
-
-        lUl = [int(x) for x in '{:03b}'.format(ul[0])] + \
-            [int(x) for x in '{:03b}'.format(ul[1])] + \
-            [int(x) for x in '{:03b}'.format(ul[2])]
-
-        lBl = [int(x) for x in '{:03b}'.format(bl[0])] + \
-            [int(x) for x in '{:03b}'.format(bl[1])] + \
-            [int(x) for x in '{:03b}'.format(bl[2])]
-
-        lUr = [int(x) for x in '{:03b}'.format(ur[0])] + \
+        lUp = [int(x) for x in '{:03b}'.format(ur[0])] + \
             [int(x) for x in '{:03b}'.format(ur[1])] + \
             [int(x) for x in '{:03b}'.format(ur[2])]
 
-        lBr = [int(x) for x in '{:03b}'.format(br[0])] + \
+        lBt = [int(x) for x in '{:03b}'.format(br[0])] + \
             [int(x) for x in '{:03b}'.format(br[1])] + \
             [int(x) for x in '{:03b}'.format(br[2])]
 
-        self.clm0.on(self.gLeds(lBr, c))
-        self.clm1.on(self.gLeds(lBl, c))
-        self.clm2.on(self.gLeds(lUr, c))
-        self.clm3.on(self.gLeds(lUl, c))
+        self.clm0.on(self.gLeds(lBt, c))
+        self.clm1.on(self.gLeds(lUp, c))
 
 
     def show(self, s, d, p, cls ):
