@@ -85,8 +85,12 @@ For now it is exactly the same code, just using an inline font instead of import
 other module to preserve memory. See the examples in 'matrix_move.py' but don't expect much:
 it is not possible to execute more than one of the larger ones, you will get 'MemoryError'.
 
+[![matrix_6x6 module with Technic Hub](http://img.youtube.com/vi/ZamDMKZNOiE/0.jpg)](https://youtu.be/ZamDMKZNOiE "matrix_6x6 module with Technic Hub")
 
-[![Displaying text with Technic Hub](http://img.youtube.com/vi/mf9VUIu9txE/0.jpg)](https://youtu.be/mf9VUIu9txE "Displaying text with Technic Hub")
+[![matrix_6x3 module with Technic Hub + City Hub](http://img.youtube.com/vi/CsZQkexFALg/0.jpg)](https://youtu.be/CsZQkexFALg "matrix_6x3 module with Technic Hub + City Hub")
+
+[![matrix_6x3 module with Move Hub](http://img.youtube.com/vi/oaAVnZTQ7lE/0.jpg)](https://youtu.be/oaAVnZTQ7lE "matrix_6x3 module with Move Hub")
+
 
 It should work with any Pybricks supported LEGO hub with at least 2 ports (Move Hub, City Hub, SPIKE Essentials,
 Technic Hub, Robot Inventor or SPIKE and maybe EV3 one day with proper adapters).
